@@ -1,16 +1,18 @@
 package boardgame;
 
-public class Position {
+public class Board {
 
 	private int rows;
 	private int columns;
+	private Piece[][] pieces;
 	
-	public Position(int rows, int columns) {
+	public Board(int rows, int columns) {
 		this.rows = rows;
 		this.columns = columns;
+		pieces = new Piece[rows][columns];
 	}
 
-	public int getRow() {
+	public int getRows() {
 		return rows;
 	}
 
@@ -26,8 +28,5 @@ public class Position {
 		this.columns = columns;
 	}
 	
-	@Override
-	public String toString() {
-		return rows +", " +columns;
-	}
+	
 }
