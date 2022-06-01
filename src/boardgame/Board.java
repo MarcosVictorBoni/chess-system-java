@@ -33,12 +33,24 @@ public class Board {
 	}
 	
 	public Piece piece(Position position) {
-		return pieces[position.getRow()][position.getColumns()];
+		return pieces[position.getRow()][position.getColumn()];
 	}
 	
 	public void placePiece(Piece piece, Position position) {
-		pieces[position.getRow()][position.getColumns()] = piece;
+		pieces[position.getRow()][position.getColumn()] = piece;
 		piece.position = position;
+	}
+	
+	private boolean positionExist(int row, int column) {
+		return row > 0 && row < rows && column >= 0 && column < columns;
+	}
+	
+	public boolean positionExist(Position position) {
+		return positionExist(position.getRow(), position.getColumn());
+	}
+	
+	public boolean thereIsaPiece(Position position ) {
+		return piece(position) != null;
 	}
 	
 }

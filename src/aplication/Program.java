@@ -1,8 +1,7 @@
 package aplication;
 
 import Chess.ChessMach;
-import boardgame.Board;
-import boardgame.Position;
+import boardgame.Piece;
 
 public class Program {
 
@@ -11,6 +10,7 @@ public class Program {
 		
 		ChessMach chessMach = new ChessMach();
 		UI.printBoard(chessMach.getPieces());
+		
 		
 		
 	}
