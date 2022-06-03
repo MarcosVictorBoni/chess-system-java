@@ -1,7 +1,6 @@
 package aplication;
 
 import Chess.ChessMach;
-import boardgame.Piece;
 
 public class Program {
 
