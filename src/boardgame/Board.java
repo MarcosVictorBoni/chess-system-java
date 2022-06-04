@@ -7,8 +7,8 @@ public class Board {
 	private Piece[][] pieces;
 	
 	public Board(int rows, int columns) {
-		if(rows < 1 || columns < 1) {
-			throw new BoardException("Error ceating board: there must be at least 1 row and 1 column");
+		if (rows < 1 || columns < 1) {
+			throw new BoardException("Error creating board: there must be at least 1 row and 1 column");
 		}
 		this.rows = rows;
 		this.columns = columns;
@@ -54,8 +54,21 @@ public class Board {
 		piece.position = position;
 	}
 	
+	public Piece removePiece(Position position) {
+		if(!positionExist(position)) {
+			throw new BoardException("Position not on the board");
+		}
+		if(piece(position) == null) {
+			return null;
+		}
+		Piece aux = piece(position);
+		aux.position = null;
+		pieces[position.getRow()][position.getColumn()] = null;
+		return aux;
+	}
+	
 	private boolean positionExist(int row, int column) {
-		return row > 0 && row < rows && column >= 0 && column < columns;
+		return row >= 0 && row < rows && column >= 0 && column < columns;
 	}
 	
 	public boolean positionExist(Position position) {
